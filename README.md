@@ -6,6 +6,9 @@
   <a href="https://frontend.code-inspector.com/public/project/27248/Py-Fuscate/dashboard" target="_blank">
     <img alt="Code Grade" src="https://www.code-inspector.com/project/27248/status/svg">
   </a>
+  <a href="https://frontend.code-inspector.com/public/project/27248/Py-Fuscate/dashboard" target="_blank">
+    <img alt="Code Score" src="https://www.code-inspector.com/project/27248/score/svg">
+  </a>
 </p>
 
 > Obfuscate Python Programs
