@@ -34,15 +34,15 @@ def marsh_enc(**kwargs):
     else:
         cyph_compressed = sel_cyph.compress(source_marshal)
     if sel_cyph is lzma:
-        return 'import marshal,lzma,gzip,bz2,binascii;exec(marshal.loads(lzma.decompress(%s)))'%cyph_compressed
+        return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads(lzma.decompress(%s)))'%cyph_compressed
     elif sel_cyph is bz2:
-        return 'import marshal,lzma,gzip,bz2,binascii;exec(marshal.loads(bz2.decompress(%s)))'%cyph_compressed
+        return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads(bz2.decompress(%s)))'%cyph_compressed
     elif sel_cyph is gzip:
-        return 'import marshal,lzma,gzip,bz2,binascii;exec(marshal.loads(gzip.decompress(%s)))'%cyph_compressed
+        return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads(gzip.decompress(%s)))'%cyph_compressed
     elif sel_cyph is zlib:
-        return 'import marshal,lzma,gzip,bz2,binascii;exec(marshal.loads(zlib.decompress(%s)))'%cyph_compressed
+        return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads(zlib.decompress(%s)))'%cyph_compressed
     elif sel_cyph is binascii:
-        return 'import marshal,lzma,gzip,bz2,binascii;exec(marshal.loads(binascii.a2b_base64(%s)))'%cyph_compressed
+        return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads(binascii.a2b_base64(%s)))'%cyph_compressed
 def logo():
     os.system(clear)
     font = random.choice(fonts)
