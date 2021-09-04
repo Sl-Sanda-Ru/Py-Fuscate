@@ -1,4 +1,5 @@
 <h1 align="center">Welcome to Py-Fuscate 👋</h1>
+<h2 align="center">A Program Which Allows You To Obfuscate Python Programs</h2>
 <p align="center">
   <a href="https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/LICENSE" target="_blank">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/github/license/Sl-Sanda-Ru/Py-Fuscate" />
