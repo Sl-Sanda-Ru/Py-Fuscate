@@ -4,7 +4,6 @@
 
 
 import os
-import sys
 import pip
 import argparse
 import random
