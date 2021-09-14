@@ -15,9 +15,9 @@ try:
     import colorama
     import pyfiglet
 except ModuleNotFoundError:
-    print(colorama.Style.BRIGHT + colorama.Fore.RED + '[!] required dependencies aren\'t installed\ninstalling..'.title())
+    print('\x1b[1m\x1b[31m' + '[!] required dependencies aren\'t installed\ninstalling..'.title())
     pip.main(['install', 'pyfiglet','colorama','tqdm','requests'])
-    exit(colorama.Style.BRIGHT + colorama.Fore.LIGHTGREEN_EX + '[+] dependencies installed\nrun the program again'.title())
+    exit('\x1b[1m\x1b[92m' + '[+] dependencies installed\nrun the program again'.title())
 clear = 'cls' if os.name == 'nt' else 'clear'
 color_list = (colorama.Style.BRIGHT+colorama.Fore.BLUE,colorama.Style.BRIGHT+colorama.Fore.CYAN,colorama.Style.BRIGHT+colorama.Fore.GREEN,colorama.Style.BRIGHT+colorama.Fore.YELLOW,colorama.Style.BRIGHT+colorama.Fore.RED,colorama.Style.BRIGHT+colorama.Fore.MAGENTA,colorama.Style.BRIGHT+colorama.Fore.LIGHTYELLOW_EX,colorama.Style.BRIGHT+colorama.Fore.LIGHTRED_EX,colorama.Style.BRIGHT+colorama.Fore.LIGHTMAGENTA_EX,colorama.Style.BRIGHT+colorama.Fore.LIGHTBLUE_EX,colorama.Style.BRIGHT+colorama.Fore.LIGHTCYAN_EX,colorama.Style.BRIGHT+colorama.Fore.LIGHTGREEN_EX)
 fonts = ['basic','o8','cosmic','graffiti','gradient','chunky','epic','poison','doom','avatar']
