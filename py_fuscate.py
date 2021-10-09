@@ -113,7 +113,7 @@ def main():
             time.sleep(0.1)
             pbar.update(1)
     with open(args.output,'w') as file:
-        file.write(f'#Encoded By Py-Fuscate\n#https://github.com/Sl-Sanda-Ru/Py-Fuscate\n{encoded_pro}')
+        file.write(f'#Encoded By Py-Fuscate\n#https://github.com/Sl-Sanda-Ru/Py-Fuscate\ntry:\n\t{encoded_pro}\nexcept KeyboardInterrupt:\n\tpass')
     print(colorama.Style.BRIGHT+colorama.Fore.LIGHTGREEN_EX + '\t[+] encoding successful!\n\tsaved as '.title() + args.output)
 if __name__ == '__main__':
     logo()
