@@ -124,7 +124,7 @@ def main():
             time.sleep(0.1)
             pbar.update(1)
     with open(args.output, 'w') as file:
-        file.write(f'#Encoded By Py-Fuscate\n#https://github.com/Sl-Sanda-Ru/Py-Fuscate\nMake Sure You\'re Running The Program With {PY_VER} Otherwise It Will Crash\nTo Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded_pro}\nexcept KeyboardInterrupt:\n\tpass')
+        file.write(f'#Encoded By Py-Fuscate\n#https://github.com/Sl-Sanda-Ru/Py-Fuscate\n#Make Sure You\'re Running The Program With {PY_VER} Otherwise It Will Crash\n#To Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded_pro}\nexcept KeyboardInterrupt:\n\tpass')
     print(LIGRE + '\t[+] encoding successful!\n\tsaved as '.title() + args.output)
 if __name__ == '__main__':
     logo()
