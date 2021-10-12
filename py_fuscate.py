@@ -78,11 +78,13 @@ def logo():
     print(color1 + '_' * os.get_terminal_size().columns, end='\n'*2)
 
 def parse_args():
-    parser = argparse.ArgumentParser(epilog='example: python3 py_fuscate.py -i myprogram.py -o pyprogram_encoded.py -s 100',description='obfuscate python programs'.title())
+    parser = argparse.ArgumentParser(epilog='example: python3 py_fuscate.py -i myprogram.py -o pyprogram_encoded.py -s 100',
+                                     description='obfuscate python programs'.title())
     parser._optionals.title = "syntax".title()
     parser.add_argument('-i', '--input', type=str, help='input file name'.title(), required=True)
     parser.add_argument('-o', '--output', type=str, help='output file name'.title(), required=True)
-    parser.add_argument('-s', '--strong', type=int, help='strengthness of obfuscation. 100 recomended'.title(), required=True)
+    parser.add_argument('-s', '--strong', type=int,
+                        help='strengthness of obfuscation. 100 recomended'.title(), required=True)
     return parser.parse_args()
 
 def check_update():
@@ -107,10 +109,10 @@ def update(latest_ver):
 def main():
     args = parse_args()
     if check_update():
-        print(colorama.Style.BRIGHT + colorama.Fore.RED + '\t[!] update available'.title().center(os.get_terminal_size().columns))
-        print(colorama.Style.BRIGHT + colorama.Fore.LIGHTGREEN_EX + '\t[+] updating...'.title().center(os.get_terminal_size().columns))
+        print(RED + '\t[!] update available'.title().center(os.get_terminal_size().columns))
+        print(LIGRGE + '\t[+] updating...'.title().center(os.get_terminal_size().columns))
         update(latest_ver)
-        sys.exit(colorama.Style.BRIGHT + colorama.Fore.LIGHTGREEN_EX + '\t[+] successfully updated...\n\t run the program again'.title().center(os.get_terminal_size().columns))
+        sys.exit(LIGRE + '\t[+] successfully updated...\n\t run the program again'.title().center(os.get_terminal_size().columns))
     print(random.choice(COLORS) + '\t[+] encoding '.title() + args.input)
     encoded_pro = ''
     with tqdm.tqdm(total=args.strong) as pbar:
@@ -123,7 +125,7 @@ def main():
             pbar.update(1)
     with open(args.output, 'w') as file:
         file.write(f'#Encoded By Py-Fuscate\n#https://github.com/Sl-Sanda-Ru/Py-Fuscate\nMake Sure You\'re Running The Program With {PY_VER} Otherwise It Will Crash\nTo Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded_pro}\nexcept KeyboardInterrupt:\n\tpass')
-    print(colorama.Style.BRIGHT+colorama.Fore.LIGHTGREEN_EX + '\t[+] encoding successful!\n\tsaved as '.title() + args.output)
+    print(LIGRE + '\t[+] encoding successful!\n\tsaved as '.title() + args.output)
 if __name__ == '__main__':
     logo()
     main()
