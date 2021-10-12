@@ -25,9 +25,9 @@ except ModuleNotFoundError:
         tmp = 'python'
     else:
         tmp = 'python' + '.'.join(str(i) for i in sys.version_info[:2])
-    if subprocess.run([tmp, '-m', 'pip', 'install','-r', 'requirements.txt']).returncode == 0:
+    if subprocess.run([tmp, '-m', 'pip', 'install', '-r', 'requirements.txt']).returncode == 0:
         sys.exit('\x1b[1m\x1b[92m' + '[+] dependencies installed\nrun the program again'.title().center(os.get_terminal_size().columns))
-    elif subprocess.run(['pip3', 'install','-r', 'requirements.txt']).returncode == 0:
+    elif subprocess.run(['pip3', 'install', '-r', 'requirements.txt']).returncode == 0:
         sys.exit('\x1b[1m\x1b[92m' + '[+] dependencies installed\nrun the program again'.title().center(os.get_terminal_size().columns))
     else:
         sys.exit('\x1b[1m\x1b[31m' + '[!] something error occured while installing dependencies\n maybe pip isn\'t installed or requirements.txt file not available?'.title().center(os.get_terminal_size().columns))
@@ -88,29 +88,29 @@ def parse_args():
     return parser.parse_args()
 
 def check_update():
-    global latest_ver
-    latest_ver = requests.get('https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/.version').text.strip()
+    global LATEST_VER
+    LATEST_VER = requests.get('https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/.version').text.strip()
     with open('.version') as version:
-        if version.read().strip() != latest_ver:
+        if version.read().strip() != LATEST_VER:
             return True
         else:
             return False
 
 def update(latest_ver):
     if '.git' in os.listdir():
-        process = subprocess.run(['git', 'stash', '&&', 'git', 'pull'])
+        subprocess.run(['git', 'stash', '&&', 'git', 'pull'])
     else:
         latest_source = requests.get('https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/py_fuscate.py').content
         with open('py_fuscate.py', 'wb') as file:
             file.write(latest_source)
         with open('.version', 'w') as file:
-            file.write(latest_ver)
+            file.write(LATEST_VER)
 
 def main():
     args = parse_args()
     if check_update():
         print(RED + '\t[!] update available'.title().center(os.get_terminal_size().columns))
-        print(LIGRGE + '\t[+] updating...'.title().center(os.get_terminal_size().columns))
+        print(LIGRE + '\t[+] updating...'.title().center(os.get_terminal_size().columns))
         update(latest_ver)
         sys.exit(LIGRE + '\t[+] successfully updated...\n\t run the program again'.title().center(os.get_terminal_size().columns))
     print(random.choice(COLORS) + '\t[+] encoding '.title() + args.input)
