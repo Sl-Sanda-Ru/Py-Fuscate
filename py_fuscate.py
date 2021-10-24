@@ -50,11 +50,6 @@ fonts = ['basic', 'o8', 'cosmic', 'graffiti', 'chunky', 'epic', 'poison', 'doom'
 colorama.init(autoreset=True)
 
 def marsh_enc(**kwargs):
-    '''argumets:
-    source <- source code of python program that you want to obfuscate as a string'''
-    if not isinstance(kwargs['source'], str):
-        print('argumet source must be string'.title())
-        return None
     sel_cyph = random.choice((lzma, gzip, bz2, binascii, zlib))
     source_marshal = marshal.dumps(compile(kwargs['source'], 'Py-Fuscate', 'exec'))
     if sel_cyph is binascii:
@@ -124,7 +119,7 @@ def main():
             time.sleep(0.1)
             pbar.update(1)
     with open(args.output, 'w') as file:
-        file.write(f'#Encoded By Py-Fuscate\n#https://github.com/Sl-Sanda-Ru/Py-Fuscate\n#Make Sure You\'re Running The Program With {PY_VER} Otherwise It Will Crash\n#To Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded_pro}\nexcept KeyboardInterrupt:\n\tpass')
+        file.write(f'# Encoded By Py-Fuscate\n# https://github.com/Sl-Sanda-Ru/Py-Fuscate\n# Make Sure You\'re Running The Program With {PY_VER} Otherwise It May Crash\n# To Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded_pro}\nexcept KeyboardInterrupt:\n\tpass')
     print(LIGRE + '\t[+] encoding successful!\n\tsaved as '.title() + args.output)
 if __name__ == '__main__':
     logo()
