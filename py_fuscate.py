@@ -106,7 +106,7 @@ def main():
     if check_update():
         print(RED + '\t[!] update available'.title().center(os.get_terminal_size().columns))
         print(LIGRE + '\t[+] updating...'.title().center(os.get_terminal_size().columns))
-        update(latest_ver)
+        update(LATEST_VER)
         sys.exit(LIGRE + '\t[+] successfully updated...\n\t run the program again'.title().center(os.get_terminal_size().columns))
     print(random.choice(COLORS) + '\t[+] encoding '.title() + args.input)
     encoded_pro = ''
