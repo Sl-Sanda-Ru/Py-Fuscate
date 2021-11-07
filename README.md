@@ -31,7 +31,7 @@ python3 py_fuscate.py
 ## Usage
 
 ```sh
-usage: py_fuscate.py [-h] -i INPUT -o OUTPUT -s STRONG
+usage: py_fuscate.py [-h] -i INPUT -o OUTPUT -s STRENGTHNESS
 ```
 
 ## Author
