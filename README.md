@@ -6,15 +6,14 @@
     <img alt="License: Apache License 2.0" src="https://img.shields.io/github/license/Sl-Sanda-Ru/Py-Fuscate" />
   </a>
   <a href="https://frontend.code-inspector.com/public/project/27248/Py-Fuscate/dashboard" target="_blank">
-    <img alt="Code Grade" src="https://www.code-inspector.com/project/27248/status/svg">
+    <img alt="Code Grade" src="https://api.codiga.io/project/27248/status/svg">
   </a>
   <a href="https://frontend.code-inspector.com/public/project/27248/Py-Fuscate/dashboard" target="_blank">
-    <img alt="Code Score" src="https://www.code-inspector.com/project/27248/score/svg">
+    <img alt="Code Score" src="https://api.codiga.io/project/27248/score/svg">
   </a>
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Sl-Sanda-Ru/Py-Fuscate?color=green">
 </p>
 
-> Obfuscate Python Programs
 ![bandicam 2021-09-03 15-27-06-980](https://user-images.githubusercontent.com/68476573/131988392-a81e7b08-2e60-4041-8ab0-3c5431ced6b6.gif)
 ### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
 
