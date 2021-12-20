@@ -40,10 +40,14 @@ usage: py_fuscate.py [-h] -i INPUT -o OUTPUT -s STRENGTHNESS
 * Github: [@Sl-Sanda-Ru](https://github.com/Sl-Sanda-Ru)
 * Telegram: [@Sl_Sanda_Ru](https://t.me/Sl_Sanda_Ru)
 
-
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+## Stargazers
+
+[![Stargazers repo roster for @Sl-Sanda-Ru/Py-Fuscate](https://reporoster.com/stars/dark/Sl-Sanda-Ru/Py-Fuscate)](https://github.com/Sl-Sanda-Ru/Py-Fuscate/stargazers)
+[![Forkers repo roster for @Sl-Sanda-Ru/Py-Fuscate](https://reporoster.com/forks/dark/Sl-Sanda-Ru/Py-Fuscate)](https://github.com/Sl-Sanda-Ru/Py-Fuscate/network/members)
 
 ## 📝 License
 
