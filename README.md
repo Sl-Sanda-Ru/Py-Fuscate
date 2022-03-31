@@ -14,7 +14,8 @@
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Sl-Sanda-Ru/Py-Fuscate?color=green">
 </p>
 
-![bandicam 2021-09-03 15-27-06-980](https://user-images.githubusercontent.com/68476573/131988392-a81e7b08-2e60-4041-8ab0-3c5431ced6b6.gif)
+![bandicam 2022-03-31 20-08-33-333](https://user-images.githubusercontent.com/68476573/161084338-61163641-e201-48b2-b0ff-555c1c9257f8.gif)
+
 ## Install
 
 ```sh
