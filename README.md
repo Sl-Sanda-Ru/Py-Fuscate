@@ -5,10 +5,10 @@
   <a href="https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/LICENSE" target="_blank">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/github/license/Sl-Sanda-Ru/Py-Fuscate" />
   </a>
-  <a href="https://app.codiga.io/public/project/27248/Py-Fuscate/dashboard" target="_blank">
+  <a href="https://frontend.code-inspector.com/public/project/27248/Py-Fuscate/dashboard" target="_blank">
     <img alt="Code Grade" src="https://api.codiga.io/project/27248/status/svg">
   </a>
-  <a href="https://app.codiga.io/public/project/27248/Py-Fuscate/dashboard" target="_blank">
+  <a href="https://frontend.code-inspector.com/public/project/27248/Py-Fuscate/dashboard" target="_blank">
     <img alt="Code Score" src="https://api.codiga.io/project/27248/score/svg">
   </a>
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Sl-Sanda-Ru/Py-Fuscate?color=green">
