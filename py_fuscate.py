@@ -28,9 +28,9 @@ except ModuleNotFoundError:
         _ = 'python'
     else:
         _ = 'python' + '.'.join(str(i) for i in sys.version_info[:2])
-    if subprocess.run([_, '-m', 'pip', 'install', '-r', 'requirements.txt'], check=True).returncode == 0:
+    if subprocess.run([_, '-m', 'pip', 'install', '-r', 'requirements.txt']).returncode == 0:
         exit('\x1b[1m\x1b[92m' + prett('[+] dependencies installed\nrun the program again'))
-    elif subprocess.run(['pip3', 'install', '-r', 'requirements.txt'], check=True).returncode == 0:
+    elif subprocess.run(['pip3', 'install', '-r', 'requirements.txt']).returncode == 0:
         exit('\x1b[1m\x1b[92m' + prett('[+] dependencies installed\nrun the program again'))
     else:
         exit('\x1b[1m\x1b[31m' + prett('[!] something error occured while installing dependencies\n maybe pip isn\'t installed or requirements.txt file not available?'))
@@ -113,8 +113,8 @@ def check_update():
 
 def update():
     if '.git' in os.listdir():
-        _ = subprocess.run(['git', 'stash'], check=True)
-        _ = subprocess.run(['git', 'pull'], check=True)
+        _ = subprocess.run(['git', 'stash'])
+        _ = subprocess.run(['git', 'pull'])
     else:
         latest_source = requests.get('https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/py_fuscate.py').content
         with open('py_fuscate.py', 'wb') as file:
