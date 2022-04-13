@@ -106,7 +106,7 @@ def check_update():
     global LATEST_VER
     LATEST_VER = requests.get('https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/.version').text.strip()
     with open('.version') as version:
-        if int(version.read().strip()) < LATEST_VER:
+        if version.read().strip() < LATEST_VER:
             return True
         else:
             return False
