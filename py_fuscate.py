@@ -106,10 +106,10 @@ def check_update():
     global LATEST_VER
     LATEST_VER = requests.get('https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/.version').text.strip()
     with open('.version') as version:
-        if version.read().strip() < LATEST_VER:
-            return True
-        else:
+        if version.read().strip() == LATEST_VER:
             return False
+        else:
+            return True
 
 def update():
     if '.git' in os.listdir():
@@ -125,13 +125,13 @@ def update():
 def main():
     args = parse_args()
     if check_update():
-        print(RED + prett('\t[!] update available'))
-        print(LIGRE + prett('\t[+] updating...'))
+        print(RED + prett('\t[!] Update available'))
+        print(LIGRE + prett('\t[+] Updating...'))
         update()
-        exit(LIGRE + prett('\t[+] successfully updated...\n\t run the program again'))
+        exit(LIGRE + prett('\t[+] Successfully updated...\n\t run the program again'))
     print(random.choice(COLORS) + '\t[+] encoding '.title() + args.input)
     if not(args.r):
-        print(random.choice(COLORS) + '\t[!] you haven\'t selected the recursion mode'.title())
+        print(random.choice(COLORS) + '\t[!] You haven\'t selected the recursion mode'.title())
     with tqdm.tqdm(total=args.strength) as pbar:
         with open(args.input) as input:
             if args.r:
