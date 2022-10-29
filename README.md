@@ -5,10 +5,10 @@
   <a href="https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/LICENSE" target="_blank">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/github/license/Sl-Sanda-Ru/Py-Fuscate" />
   </a>
-  <a href="https://frontend.code-inspector.com/public/project/27248/Py-Fuscate/dashboard" target="_blank">
+  <a href="https://app.codiga.io/hub/project/27248/Py-Fuscate" target="_blank">
     <img alt="Code Grade" src="https://api.codiga.io/project/27248/status/svg">
   </a>
-  <a href="https://frontend.code-inspector.com/public/project/27248/Py-Fuscate/dashboard" target="_blank">
+  <a href="https://app.codiga.io/hub/project/27248/Py-Fuscate" target="_blank">
     <img alt="Code Score" src="https://api.codiga.io/project/27248/score/svg">
   </a>
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Sl-Sanda-Ru/Py-Fuscate?color=green">
@@ -24,7 +24,7 @@
 sudo apt install git python3
 git clone https://github.com/Sl-Sanda-Ru/Py-Fuscate.git
 cd Py-Fuscate
-python3 -m pip install requirements.txt
+python3 -m pip install -r requirements.txt
 python3 py_fuscate.py
 ```
 
