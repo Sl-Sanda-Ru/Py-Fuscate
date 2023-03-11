@@ -111,7 +111,7 @@ def main():
         print(LIGRE + prett('[+] updating...'))
         update()
         print(LIGRE + prett('[+] successfully updated...'))
-        sys.exit(LIGRE + +prett('run the program again'))
+        sys.exit(LIGRE + prett('run the program again'))
     print(random.choice(COLORS) + '\t[+] encoding '.title() + args.input)
     with tqdm.tqdm(total=args.complexity) as pbar:
         with open(args.input) as iput:
