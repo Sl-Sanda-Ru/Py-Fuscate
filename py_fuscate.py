@@ -18,22 +18,22 @@ import zlib
 
 def prett(text):
     return text.title().center(os.get_terminal_size().columns)
+PYTHON_VERSION = 'python' + '.'.join(str(i) for i in sys.version_info[:2])
 try:
     import requests
     import tqdm
     import colorama
     import pyfiglet
 except ModuleNotFoundError:
-    if os.name == 'nt':
-        _ = 'python'
-    else:
-        _ = 'python' + '.'.join(str(i) for i in sys.version_info[:2])
-    if subprocess.run([_, '-m', 'pip', 'install', '-r', 'requirements.txt']).returncode == 0:
-        exit('\x1b[1m\x1b[92m' + prett('[+] dependencies installed\nrun the program again'))
+    if subprocess.run([PYTHON_VERSION, '-m', 'pip', 'install', '-r', 'requirements.txt']).returncode == 0:
+        print('\x1b[1m\x1b[92m' + prett('[+] dependencies installed'))
+        sys.exit('\x1b[1m\x1b[92m' + prett('[+] run the program again'))
     elif subprocess.run(['pip3', 'install', '-r', 'requirements.txt']).returncode == 0:
-        exit('\x1b[1m\x1b[92m' + prett('[+] dependencies installed\nrun the program again'))
+        print('\x1b[1m\x1b[92m' + prett('[+] dependencies installed'))
+        sys.exit('\x1b[1m\x1b[92m' + prett('[+] run the program again'))
     else:
-        exit('\x1b[1m\x1b[31m' + prett('[!] something error occured while installing dependencies\n maybe pip isn\'t installed or requirements.txt file not available?'))
+        print('\x1b[1m\x1b[31m' + prett('[!] something error occured while installing dependencies'))
+        sys.exit('\x1b[1m\x1b[31m' + prett('maybe pip isn\'t installed or requirements.txt file not available?'))
 BLU = colorama.Style.BRIGHT + colorama.Fore.BLUE
 CYA = colorama.Style.BRIGHT + colorama.Fore.CYAN
 GRE = colorama.Style.BRIGHT + colorama.Fore.GREEN
@@ -49,25 +49,18 @@ LIGRE = colorama.Style.BRIGHT + colorama.Fore.LIGHTGREEN_EX
 CLEAR = 'cls' if os.name == 'nt' else 'clear'
 COLORS = BLU, CYA, GRE, YEL, RED, MAG, LIYEL, LIRED, LIMAG, LIBLU, LICYA, LIGRE
 FONTS = 'basic', 'o8', 'cosmic', 'graffiti', 'chunky', 'epic', 'poison', 'doom', 'avatar'
-PYTHON_VERSION = 'python' + '.'.join(str(i) for i in sys.version_info[:2])
+
+global LATEST_VER
 colorama.init(autoreset=True)
 
 def encode(source:str) -> str:
     selected_mode = random.choice((lzma, gzip, bz2, binascii, zlib))
     marshal_encoded = marshal.dumps(compile(source, 'Py-Fuscate', 'exec'))
     if selected_mode is binascii:
-        encoded = binascii.b2a_base64(marshal_encoded)
-    else:
-        encoded = selected_mode.compress(marshal_encoded)
-    if selected_mode is binascii:
-        TMP = 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads(binascii.a2b_base64({})))'
-        return TMP.format(encoded)
-    else:
-        TMP = 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads({}.decompress({})))'
-        return TMP.format(selected_mode.__name__, encoded)
-
+        return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads(binascii.a2b_base64({})))'.format(binascii.b2a_base64(marshal_encoded))
+    return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads({}.decompress({})))'.format(selected_mode.__name__, selected_mode.compress(marshal_encoded))
 def logo() -> None:
-    os.system(CLEAR)
+    _ = subprocess.run([CLEAR], shell=True, check=True)
     font = random.choice(FONTS)
     color1 = random.choice(COLORS)
     color2 = random.choice(COLORS)
@@ -86,35 +79,24 @@ def logo() -> None:
 def parse_args():
     parser = argparse.ArgumentParser(description='obfuscate python programs'.title())
     parser._optionals.title = "syntax".title()
-    parser.add_argument(
-        '-r','--recursion',
-        default=False,
-        required=False,
-        help="recursion encoding by using this flag you will get x2 obfuscation strength".title(),
-        dest='r',
-        action='store_true')
     parser.add_argument('-i', '--input', type=str, help='input file name'.title(), required=True)
     parser.add_argument('-o', '--output', type=str, help='output file name'.title(), required=True)
-    parser.add_argument('-s', '--strength', type=int,
-                        help='strengthness of obfuscation. 100 recomended'.title(), required=True)
-    if len(sys.argv)==1:
+    parser.add_argument('-c', '--complexity', type=int,
+                        help='complexity of obfuscation. 100 recomended'.title(), required=True)
+    if len(sys.argv) == 1:
         parser.print_help()
-        exit()
+        sys.exit()
     return parser.parse_args()
 
 def check_update():
-    global LATEST_VER
     LATEST_VER = requests.get('https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/.version').text.strip()
     with open('.version') as version:
-        if version.read().strip() < LATEST_VER:
-            return True
-        else:
-            return False
+        return True if float(version.read().strip()) < float(LATEST_VER) else False
 
 def update():
     if '.git' in os.listdir():
-        _ = subprocess.run(['git', 'stash'])
-        _ = subprocess.run(['git', 'pull'])
+        _ = subprocess.run(['git', 'stash'], check=True)
+        _ = subprocess.run(['git', 'pull'], check=True)
     else:
         latest_source = requests.get('https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/py_fuscate.py').content
         with open('py_fuscate.py', 'wb') as file:
@@ -124,34 +106,24 @@ def update():
 
 def main():
     args = parse_args()
-    if check_update():
-        print(RED + prett('\t[!] update available'))
-        print(LIGRE + prett('\t[+] updating...'))
-        update()
-        exit(LIGRE + prett('\t[+] successfully updated...\n\t run the program again'))
+    # if check_update():
+    #     print(RED + prett('[!] update available'))
+    #     print(LIGRE + prett('[+] updating...'))
+    #     update()
+    #     print(LIGRE + prett('[+] successfully updated...'))
+    #     sys.exit(LIGRE + +prett('run the program again'))
     print(random.choice(COLORS) + '\t[+] encoding '.title() + args.input)
-    if not(args.r):
-        print(random.choice(COLORS) + '\t[!] you haven\'t selected the recursion mode'.title())
-    with tqdm.tqdm(total=args.strength) as pbar:
-        with open(args.input) as input:
-            if args.r:
-                for i in range(args.strength):
-                    if i == 0:
-                        encoded = encode(source=input.read())
-                    else:
-                        encoded = encode(source=encode(source=encoded))
-                    time.sleep(0.1)
-                    pbar.update(1)
-            else:
-                for i in range(args.strength):
-                    if i == 0:
-                        encoded = encode(source=input.read())
-                    else:
-                        encoded = encode(source=encoded)
-                    time.sleep(0.1)
-                    pbar.update(1)
+    with tqdm.tqdm(total=args.complexity) as pbar:
+        with open(args.input) as iput:
+            for i in range(args.complexity):
+                if i == 0:
+                    encoded = encode(source=iput.read())
+                else:
+                    encoded = encode(source=encoded)
+                time.sleep(0.1)
+                pbar.update(1)
     with open(args.output, 'w') as output:
-        output.write(f'# Encoded By Py-Fuscate\n# https://github.com/Sl-Sanda-Ru/Py-Fuscate\n# Make Sure You\'re Running The Program With {PYTHON_VERSION} Otherwise It May Crash\n# To Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded}\nexcept KeyboardInterrupt:\n\tpass')
+        output.write(f'# Encoded By Py-Fuscate\n# https://github.com/Sl-Sanda-Ru/Py-Fuscate\n# Make Sure You\'re Running The Program With {PYTHON_VERSION} Otherwise It May Crash\n# To Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded}\nexcept KeyboardInterrupt:\n\texit()')
     print(LIGRE + '\t[+] encoding successful!\n\tsaved as '.title() + args.output)
 if __name__ == '__main__':
     logo()
