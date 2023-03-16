@@ -60,7 +60,7 @@ def encode(source:str) -> str:
         return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads(binascii.a2b_base64({})))'.format(binascii.b2a_base64(marshal_encoded))
     return 'import marshal,lzma,gzip,bz2,binascii,zlib;exec(marshal.loads({}.decompress({})))'.format(selected_mode.__name__, selected_mode.compress(marshal_encoded))
 def logo() -> None:
-    _ = subprocess.run([CLEAR], shell=True, check=True)
+    _ = subprocess.run([CLEAR], shell=True)
     font = random.choice(FONTS)
     color1 = random.choice(COLORS)
     color2 = random.choice(COLORS)
