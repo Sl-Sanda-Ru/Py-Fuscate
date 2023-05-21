@@ -114,12 +114,12 @@ def main():
         sys.exit(LIGRE + prett('run the program again'))
     print(random.choice(COLORS) + '\t[+] encoding '.title() + args.input)
     with tqdm.tqdm(total=args.complexity) as pbar:
-        with open(args.input) as iput:
+        with open(args.input, encoding="utf-8", errors="ignore") as iput:
             for i in range(args.complexity):
                 if i == 0:
-                    encoded = encode(source=iput.read())
+                    encoded = encode(source=iput.read().encode("utf-8"))
                 else:
-                    encoded = encode(source=encoded)
+                    encoded = encode(source=encoded.encode("utf-8"))
                 time.sleep(0.1)
                 pbar.update(1)
     with open(args.output, 'w') as output:
