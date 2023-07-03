@@ -44,6 +44,9 @@ usage: py_fuscate.py [-h] -i INPUT -o OUTPUT -c COMPLEXITY
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Sl-Sanda-Ru/Py-Fuscate&type=Date)](https://star-history.com/#Sl-Sanda-Ru/Py-Fuscate&Date)
 
 ## Stargazers
 
