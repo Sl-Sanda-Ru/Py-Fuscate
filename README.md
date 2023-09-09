@@ -2,9 +2,10 @@
 <h2 align="center">A Program Which Allows You To Obfuscate Python Programs</h2>
 <h3 align="center">Idea By <a href='https://github.com/Ishanoshada'>Crypto</a></h2>
 <p align="center">
+    <img alt="Language: Python" src="https://img.shields.io/badge/Language-Python-Lightgreen?logo=python&label=Language" />
   <a href="https://raw.githubusercontent.com/Sl-Sanda-Ru/Py-Fuscate/main/LICENSE" target="_blank">
     <img alt="License: Apache License 2.0" src="https://img.shields.io/github/license/Sl-Sanda-Ru/Py-Fuscate" />
-  </a>
+  </a>  
   <a href="https://www.codefactor.io/repository/github/sl-sanda-ru/py-fuscate"><img src="https://www.codefactor.io/repository/github/sl-sanda-ru/py-fuscate/badge" alt="CodeFactor" /></a>
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Sl-Sanda-Ru/Py-Fuscate?color=green">
 </p>
